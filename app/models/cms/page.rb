@@ -14,6 +14,19 @@ class Cms::Page < ActiveRecord::Base
   attr_accessor :tags,
                 :blocks_attributes_changed
   
+  # -- PG Search ------------------------------------------------------------
+  
+  if ComfortableMexicanSofa.config.use_pg_search
+    include PgSearch
+    pg_search_scope :search_by_content, 
+              against: :content,
+              using: {
+                tsearch: {:dictionary => "english"}
+              }
+              
+  end
+  
+  
   # -- Relationships --------------------------------------------------------
   belongs_to :site
   belongs_to :layout
@@ -126,7 +139,7 @@ class Cms::Page < ActiveRecord::Base
   def url
     "http://" + "#{self.site.hostname}/#{self.site.path}/#{self.full_path}".squeeze("/")
   end
-  
+
   # Method to collect prevous state of blocks for revisions
   def blocks_attributes_was
     blocks_attributes(true)

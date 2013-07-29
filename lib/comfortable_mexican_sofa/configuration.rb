@@ -11,6 +11,9 @@ class ComfortableMexicanSofa::Configuration
   # Module that will handle authentication for public pages
   attr_accessor :public_auth
 
+  # Use PG_Search
+  attr_accessor :use_pg_search
+  
   # When arriving at /cms-admin you may chose to redirect to arbirtary path,
   # for example '/cms-admin/users'
   attr_accessor :admin_route_redirect

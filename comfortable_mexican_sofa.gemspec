@@ -26,4 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'haml-rails',      '>= 0.3.0'
   s.add_dependency 'sass-rails',      '>= 3.1.0'
   s.add_dependency 'coffee-rails',    '>= 3.1.0'
+  s.add_dependency 'pg_search',       '~> 0.7.0'
+  
 end
