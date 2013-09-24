@@ -13,7 +13,7 @@ class CmsAdmin::SnippetsController < CmsAdmin::BaseController
   end
 
   def edit
-    render
+    @snippet.attributes = snippet_params
   end
 
   def create
