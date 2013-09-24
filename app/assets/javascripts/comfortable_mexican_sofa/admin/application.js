@@ -1,3 +1,5 @@
+#= require tinymce
+
 window.CMS.wysiwyg = function() {
   return tinymce.init({
     selector: "textarea",
